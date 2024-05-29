@@ -84,10 +84,13 @@ galleryElem.innerHTML = markup;
 
 // -------------------------------------------------------------
 
-// Описаний в документації
-import SimpleLightbox from 'simplelightbox';
+import SimpleLightbox from "simplelightbox";
 
-// Додатковий імпорт стилів
+// Add extra styles for module
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-
+let gallery = new SimpleLightbox('.gallery a', {
+  overlayOpacity: 0.9,
+  captionDelay: 250,
+  captionsData: "alt",
+});
