@@ -42,8 +42,11 @@ feedbackFormEl.addEventListener('submit', event => {
   usermessage = usermessage.trim();
 
   if (usermail === '' || usermessage === '') {
+    
     alert('Fill please all fields');
+
   } else {
+    // виведи у консоль об’єкт formData
     console.log(formData);
 
     // очисти локальне сховище, об’єкт formData і поля форми
@@ -54,8 +57,6 @@ feedbackFormEl.addEventListener('submit', event => {
 
     feedbackFormEl.reset();
   }
-
-  console.log(formData);
 });
 
 feedbackFormEl.addEventListener('input', event => {
@@ -70,7 +71,6 @@ feedbackFormEl.addEventListener('input', event => {
   formData.email = usermail;
   formData.message = usermessage;
 
-  // Введення даних в одне поле форми не видаляє дані в сховищі для іншого ????
   // додати об'кт у localStorage
   saveToLocalStorage(feedbackFormState, formData);
 });
@@ -79,12 +79,8 @@ feedbackFormEl.addEventListener('input', event => {
 const dataFromLS = localStorage.getItem(feedbackFormState);
 
 if (dataFromLS !== null) {
-  // console.log(dataFromLS);
-
   // використовуй дані для заповнення форми та об'єкта formData
   const parseData = JSON.parse(dataFromLS);
-
-  // перевірка на помилку тут
 
   feedbackFormEl.elements.email.value = parseData.email;
   feedbackFormEl.elements.message.value = parseData.message;

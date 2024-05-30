@@ -8,3 +8,18 @@
 @import url('./1-gallery.css');
 @import url('./2-form.css');
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+body a {
+  font-size: 48px;
+  transition: transform 150ms linear;
+}
+
+body a:hover {
+  transform: scale(1.2);
+}
